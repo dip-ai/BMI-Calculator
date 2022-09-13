@@ -1,6 +1,6 @@
 package com.example.bmicalculator
 
-import android.content.SharedPreferences
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,16 +10,12 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
-//    private lateinit var sf:SharedPreferences
-//    private lateinit var editor: SharedPreferences.Editor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val weightText=findViewById<EditText>(R.id.setWeight)
         val heightText=findViewById<EditText>(R.id.setHeight)
         val calButton=findViewById<Button>(R.id.btnCalculate)
-//        sf=getSharedPreferences("my_sf", MODE_PRIVATE)
-//        editor=sf.edit()
 
         calButton.setOnClickListener {
             val weight=weightText.text.toString()
@@ -39,15 +35,15 @@ class MainActivity : AppCompatActivity() {
         return when{
             weight.isNullOrEmpty() -> {
                 Toast.makeText(this, "Weight is Empty, Enter Weight", Toast.LENGTH_LONG).show()
-                return false
+                false
             }
 
             height.isNullOrEmpty() -> {
                 Toast.makeText(this, "height is Empty, Enter height", Toast.LENGTH_LONG).show()
-                return false
+                false
             }
             else -> {
-                return true
+                true
             }
         }
     }
